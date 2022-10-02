@@ -5,7 +5,7 @@ using namespace std;
 // Number of vertices in the graph
 #define V 9
  
-// constructed distance
+
 // array
 no need of the function
  
