@@ -5,29 +5,7 @@ using namespace std;
 // Number of vertices in the graph
 #define V 9
  
-// A utility function to find the vertex with minimum
-// distance value, from the set of vertices not yet included
-// in shortest path tree
-int minDistance(int dist[], bool sptSet[])
-{
- 
-    // Initialize min value
-    int min = INT_MAX, min_index;
- 
-    for (int v = 0; v < V; v++)
-        if (sptSet[v] == false && dist[v] <= min)
-            min = dist[v], min_index = v;
- 
-    return min_index;
-}
 
-The code calculates the shortest distance but doesn’t calculate the path information. Create a parent array, update the parent array when distance is updated (like prim’s implementation), and use it to show the shortest path from source to different vertices.
-The code is for undirected graphs, the same Dijkstra function can be used for directed graphs also.
-The code finds the shortest distances from the source to all vertices. If we are interested only in the shortest distance from the source to a single target, break them for a loop when the picked minimum distance vertex is equal to the target.
-The time Complexity of the implementation is O(V2). If the input graph is represented using adjacency list, it can be reduced to O(E * log V) with the help of a binary heap. Please see Dijkstra’s Algorithm for Adjacency List Representation for more details.
-Dijkstra’s algorithm doesn’t work for graphs with negative weight cycles. It may give correct results for a graph with negative edges but you must allow a vertex can be visited multiple times and that version will lose its fast time complexity. For graphs with negative weight edges and cycles, the Bellman-Ford algorithm can be used, we will soon be discussing it as a separate post.
- 
-// A utility function to print the constructed distance
 // array
 no need of the function
  
